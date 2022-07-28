@@ -1,0 +1,121 @@
+.main-head {
+  width: 90%;
+  margin: auto;
+}
+nav {
+  @include flex(space-between, center, row);
+  min-height: 10vh;
+  width: 100%;
+  margin: auto;
+  flex-wrap: wrap;
+  .logo {
+    // margin-left: 2rem;
+    @include flex(flex-start, center, row);
+    flex: 1 1 20rem;
+    h1 {
+      margin-left: 2rem;
+    }
+  }
+  ul {
+    @include flex(space-around, center, row);
+    flex: 1 1 20rem;
+  }
+}
+
+.active {
+  background: $gray;
+  color: white;
+  padding: 1rem 3rem;
+  border-radius: 2rem;
+}
+
+.intro {
+  min-height: 90vh;
+  width: 90%;
+  margin: auto;
+  @include flex(space-between, center, row);
+  flex-wrap: wrap;
+  h2 {
+    font-size: 8rem;
+    padding-top: 2rem;
+    background: $gradient;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+  h3 {
+    font-size: 6rem;
+    padding: 2rem 0rem;
+  }
+  p {
+    padding-top: 2rem;
+    color: $gray;
+  }
+}
+
+.intro-social {
+  margin-top: 4rem;
+  a {
+    margin-right: 5rem;
+  }
+}
+
+.intro-text,
+.intro-images {
+  flex: 1 1 40rem;
+}
+
+svg {
+  filter: drop-shadow(0 0.5rem 0.8rem rgba(0, 0, 0, 0.4));
+}
+
+.splash {
+  position: absolute;
+  top: 0%;
+  right: 0%;
+  height: 100%;
+  z-index: -1;
+}
+
+@keyframes plant {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-30%);
+  }
+}
+@keyframes me {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  50% {
+    transform: rotateZ(-2deg);
+  }
+  100% {
+    transform: rotateZ(2deg);
+  }
+}
+@keyframes clock {
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+#plant-left {
+  animation: plant 1.5s ease infinite alternate 0.5s;
+}
+#plant-right {
+  animation: plant 1.5s ease infinite alternate 1s;
+}
+#me {
+  animation: me 3s ease-in-out infinite alternate 0.5s;
+  transform-origin: bottom;
+}
+#clock-arrow {
+  // https://developer.mozilla.org/en-US/docs/Web/CSS/transform-box
+  // fill-box - the object bounding box is used as the reference box.
+  transform-box: fill-box;
+  animation: clock linear 60s infinite;
+  transform-origin: 50% 110%;
+}

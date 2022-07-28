@@ -1,0 +1,82 @@
+// font size
+$header1: 2.5rem;
+$header2: 4rem;
+$header3: 2.5rem;
+$header4: 2rem;
+$text: 2.5rem;
+
+// color
+$gradient: linear-gradient(to left, #38d39f, #38a4d3);
+$background: #154353;
+$gray: #2c2c2c;
+
+// helper mixin
+@mixin flex($justify, $align, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+@import "global";
+@import "intro";
+@import "projects";
+@import "contact";
+@import "footer";
+
+@media screen and (max-width: 1332px) {
+  html {
+    font-size: 53%;
+  }
+  .splash {
+    display: none;
+  }
+  svg {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 754px) {
+  html {
+    font-size: 45%;
+  }
+  nav {
+    .logo {
+      flex: 1 1 20rem;
+    }
+    ul {
+      flex: 1 1 40rem;
+      margin: 2rem 0rem;
+    }
+  }
+  .intro-text {
+    margin-top: 5rem;
+    text-align: center;
+  }
+  .intro-social {
+    @include flex(center, center, row);
+    a {
+      margin: 2rem;
+    }
+  }
+  .intro-images {
+    text-align: center;
+  }
+  svg {
+    height: 60%;
+  }
+  .splash {
+    display: none;
+  }
+  .emmajoy,
+  .travelly {
+    flex: 1 1 50rem;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  form {
+    padding: 1rem;
+    width: 90%;
+  }
+}
